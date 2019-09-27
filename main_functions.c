@@ -6,6 +6,7 @@
  * @line_number: number of line were instructions was provided
  * @line: line read from file. Use to free in error case
  * @fl: file opened. Use to fclose in error case
+ * @top: top of stack. Use to free list memory
  *
  * Return: pointer to struct instruction requested
  */
