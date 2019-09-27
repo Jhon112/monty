@@ -46,6 +46,7 @@ void print_error_functions(char  *error_type, ...)
 
 	free(va_arg(replacers, char *));
 	fclose(va_arg(replacers, FILE *));
+	free_dlistint(va_arg(replacers, stack_t *));
 	exit(EXIT_FAILURE);
 }
 
