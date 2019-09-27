@@ -17,15 +17,12 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 		print_error("usage");
-
 	fl = fopen(argv[1], "r");
 	if (fl == NULL)
 		print_error("open", argv[1]);
-
 	line = malloc(sizeof(char) * 1024);
 	if (line == NULL)
 		print_error("malloc");
-
 	while (1)
 	{
 		if (fgets(line, 1024, fl) == NULL)
@@ -52,5 +49,4 @@ int main(int argc, char *argv[])
 	free(line);
 	fclose(fl);
 	return (0);
-
 }

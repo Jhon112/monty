@@ -28,7 +28,7 @@ void print_error(char  *error_type, ...)
 }
 
 /**
- * print_error_functions - prints all the different errors according to its type
+ * print_error_functions - prints all the different errors according to type
  * @error_type: pointer to string indicating type
  *
  * Return:  void - exit with EXIT_FAILURE
