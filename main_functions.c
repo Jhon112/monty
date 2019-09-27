@@ -19,7 +19,7 @@ instruction_t get_instruction(char *opcode, int line_number, char *line,
 	length = (sizeof(instructions) / sizeof(instruction_t));
 	while (i < length)
 	{
-		if (_strcmp(instructions[i].opcode, opcode) == 0)
+		if (_strcmp(opcode, instructions[i].opcode) == 0)
 			return (instructions[i]);
 		i++;
 	}
