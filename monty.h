@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define DELIM " \t\r\n\a"
+#define DELIM " \t\r\n"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -53,8 +53,9 @@ void print_error_functions(char *, ...);
 int _strcmp(char *, char*);
 char *get_content_file(FILE *);
 char *_strcpy(char *, char *);
-instruction_t get_instruction(char *, int, char *, FILE *);
+instruction_t get_instruction(char *, int, char *, FILE *, stack_t *);
 int is_number(char *);
+void free_dlistint(stack_t *);
 
 /* functions to handle op_code */
 void push(stack_t **, unsigned int);
