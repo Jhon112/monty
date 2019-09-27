@@ -46,11 +46,25 @@ int main(int argc, char *argv[])
 			break;
 		}
 	}
+	free_all(line, fl, top);
+	return (0);
+}
+
+/**
+ * free_all - frees all the memory created at the end of main function
+ * @line: buff created to store line readed
+ * @fl: file opened
+ * @top: pointer to top of stack
+ *
+ * Return: void
+ */
+void free_all(char *line, FILE *fl, stack_t *top)
+{
 	free(line);
 	fclose(fl);
 	free_dlistint(top);
-	return (0);
 }
+
 
 /**
  * free_dlistint - frees memory from a list
