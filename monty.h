@@ -56,4 +56,8 @@ char *_strcpy(char *, char *);
 instruction_t get_instruction(char *, int, char *, FILE *);
 int is_number(char *);
 
+/* functions to handle op_code */
+void push(stack_t **, unsigned int);
+void pall(stack_t **, unsigned int);
+
 #endif
