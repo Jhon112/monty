@@ -10,7 +10,7 @@
  * Return: pointer to struct instruction requested
  */
 instruction_t get_instruction(char *opcode, int line_number, char *line,
-			      FILE *fl)
+			      FILE *fl, stack_t *top)
 {
 	instruction_t instructions[] = {{"push", push}, {"pall", pall}};
 	int length = 0, i = 0;
@@ -24,6 +24,7 @@ instruction_t get_instruction(char *opcode, int line_number, char *line,
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 	free(line);
+	free_dlistint(top);
 	fclose(fl);
 	exit(EXIT_FAILURE);
 }
