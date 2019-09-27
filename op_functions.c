@@ -43,3 +43,49 @@ void pall(stack_t **stack, unsigned int line_number)
 		current = current->next;
 	}
 }
+
+/**
+ * pint - prints the top
+ * @stack: pointer to the top of the stack
+ * @line_number: line of instruction
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+}
+/**
+ * swap - swaps the first two elements of the stack
+ * @stack: pointer to the top of stack
+ * @line_number: line instruction
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+	int top, previous;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	top = current->n;
+	previous = current->next->n;
+	current->next->n = top;
+	current->n = previous;
+}
+
+/**
+ * nop - Does nothing
+ * @stack: pointer to the top of stack
+ * @line_number: line of instruction
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
