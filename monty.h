@@ -8,6 +8,9 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <string.h>
+
+#define DELIM " \t\r\n\a"
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -40,12 +43,17 @@ typedef struct instruction_s
 } instruction_t;
 
 
-/* global variable who stores the top of stack */
-extern stack_t *top;
+/* global variable who stores the data to be added to stack */
+extern int data;
 
 /* prototypes */
-
+int data;
 void print_error(char *, ...);
+void print_error_functions(char *, ...);
 int _strcmp(char *, char*);
+char *get_content_file(FILE *);
+char *_strcpy(char *, char *);
+instruction_t get_instruction(char *, int, char *, FILE *);
+int is_number(char *);
 
 #endif
