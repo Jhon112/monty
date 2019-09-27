@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	FILE *fl = NULL;
 	stack_t *top = NULL;
 	char *line = NULL, *token = NULL, *push_token = NULL;
-	int line_number = 0;
+	unsigned int line_number = 0;
 	instruction_t instruction;
 
 	if (argc != 2)
@@ -37,12 +37,15 @@ int main(int argc, char *argv[])
 			instruction = get_instruction(token, line_number,
 						      line, fl);
 			if (_strcmp(instruction.opcode, "push") == 0)
+			{
 				push_token = strtok(NULL, DELIM);
-			if (!push_token || is_number(push_token) == -1)
-				print_error_functions("integer", line_number,
-						      line, fl);
-			data = atoi(push_token);
-			printf("%p\n DATA: %d\n", instruction.f, data);
+				if (!push_token || is_number(push_token) == -1)
+					print_error_functions("integer",
+							      line_number,
+							      line, fl);
+				data = atoi(push_token);
+			}
+			instruction.f(&top, line_number);
 			token = strtok(NULL, DELIM);
 		}
 	}
