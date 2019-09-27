@@ -13,7 +13,7 @@ void add(stack_t **head, unsigned int line_number)
 
 	if (current == NULL || current->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	current->next->n += current->n;
@@ -35,10 +35,10 @@ void pop(stack_t **head, unsigned int line_number)
 
 	if (current == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if(current->next == NULL)
+	if (current->next == NULL)
 	{
 		free(current);
 		*head = NULL;
