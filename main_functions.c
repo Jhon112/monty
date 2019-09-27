@@ -12,7 +12,7 @@
 instruction_t get_instruction(char *opcode, int line_number, char *line,
 			      FILE *fl)
 {
-	instruction_t instructions[] = {{"push", NULL}, {"pall", NULL}};
+	instruction_t instructions[] = {{"push", push}, {"pall", pall}};
 	int length = 0, i = 0;
 
 	length = (sizeof(instructions) / sizeof(instruction_t));
