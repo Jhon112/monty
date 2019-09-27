@@ -56,6 +56,7 @@ char *_strcpy(char *, char *);
 instruction_t get_instruction(char *, int, char *, FILE *, stack_t *);
 int is_number(char *);
 void free_dlistint(stack_t *);
+void free_all(char *, FILE *, stack_t *);
 
 /* functions to handle op_code */
 void push(stack_t **, unsigned int);
