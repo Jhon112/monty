@@ -32,21 +32,41 @@ int main(int argc, char *argv[])
 		while (token != NULL)
 		{
 			instruction = get_instruction(token, line_number,
-						      line, fl);
+						      line, fl, top);
 			if (_strcmp(instruction.opcode, "push") == 0)
 			{
 				push_token = strtok(NULL, DELIM);
 				if (!push_token || is_number(push_token) == -1)
 					print_error_functions("integer",
 							      line_number,
-							      line, fl);
+							      line, fl, top);
 				data = atoi(push_token);
 			}
 			instruction.f(&top, line_number);
-			token = strtok(NULL, DELIM);
+			break;
 		}
 	}
 	free(line);
 	fclose(fl);
+	free_dlistint(top);
 	return (0);
+}
+
+/**
+ * free_dlistint - frees memory from a list
+ * @head: pointer to the first node
+ *
+ * Return: void
+ */
+void free_dlistint(stack_t *head)
+{
+	stack_t *next, *current;
+
+	current = head;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
 }
